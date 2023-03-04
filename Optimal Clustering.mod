@@ -64,7 +64,8 @@ dvar boolean serving[rangeHAP][rangeFSO]; //HAP phuc vu FSO
 dexpr float K_over = sum(i in rangeHAP) useHAP[i]; //So luong HAP su dung
 
 //Ham muc tieu
-dexpr float Cost_over = K_over * (C_day_H + (1+V) * C_day_F + C_mtn / D_m) + (sum(i in rangeHAP) (sum(j in rangeM) (use_m[i][j] * j))) * C_day_F;
+dexpr float Cost_over = K_over * (C_day_H + (1+V) * C_day_F + C_mtn / D_m) 
+			+ (sum(i in rangeHAP) (sum(j in rangeM) (use_m[i][j] * j))) * C_day_F;
 minimize (Cost_over);
 
 subject to
